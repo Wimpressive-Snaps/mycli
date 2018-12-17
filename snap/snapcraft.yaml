@@ -1,0 +1,23 @@
+name: mycli
+base: core18
+version: 'git'
+summary: A Terminal Client for MySQL with AutoCompletion and Syntax Highlighting.
+description: |
+  A command line client for MySQL that can do auto-completion and syntax
+  highlighting.
+
+grade: stable
+confinement: strict
+
+parts:
+  mycli:
+    plugin: python
+    source: .
+
+apps:
+  mycli:
+    command: bin/mycli
+    environment:
+      LC_ALL: C.UTF-8    
+    plugs:
+      - network
